@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://dilhbmmutvm7r"]
+
+[ext_resource type="PackedScene" uid="uid://fl2wycpfh0lb" path="res://characters/player/player.tscn" id="1_21v0t"]
+[ext_resource type="Script" path="res://menu/menu.gd" id="1_md0gm"]
+[ext_resource type="PackedScene" uid="uid://wu3fm34cfnrg" path="res://main.tscn" id="2_7qfvg"]
+[ext_resource type="PackedScene" uid="uid://bpw5c0xsx4jt8" path="res://tools/trigger_area.tscn" id="2_c23hx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsdj0"]
+albedo_color = Color(0.376916, 0.390625, 0.320435, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i07sg"]
+material = SubResource("StandardMaterial3D_lsdj0")
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f67j8"]
+size = Vector3(30, 1, 30)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eokpg"]
+size = Vector3(1, 0.1, 1)
+
+[node name="Menu" type="Node"]
+script = ExtResource("1_md0gm")
+default_scene = ExtResource("2_7qfvg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.508651, 0.860973, 0, -0.860973, 0.508651, 0, 7.27372, 9.03311)
+
+[node name="Floor2" type="StaticBody3D" parent="."]
+collision_layer = 8
+collision_mask = 15
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor2"]
+mesh = SubResource("BoxMesh_i07sg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2"]
+shape = SubResource("BoxShape3D_f67j8")
+
+[node name="Player" parent="." instance=ExtResource("1_21v0t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50654, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 4)
+
+[node name="Continue" parent="." instance=ExtResource("2_c23hx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43378, 1.01338, -8.3768)
+collision_layer = 8
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Continue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.459812, 0)
+mesh = SubResource("BoxMesh_eokpg")
+
+[node name="Label3D" type="Label3D" parent="Continue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.995455, -1.17876)
+text = "Continue"
+font_size = 250
+outline_size = 24
+uppercase = true
+
+[node name="Exit" parent="." instance=ExtResource("2_c23hx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.48285, 1.01775, -8.23527)
+collision_layer = 8
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Exit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.459812, 0)
+mesh = SubResource("BoxMesh_eokpg")
+
+[node name="Label3D" type="Label3D" parent="Exit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.995455, -1.17876)
+text = "Exit Game"
+font_size = 250
+outline_size = 24
+uppercase = true
+
+[connection signal="triggered" from="Continue" to="." method="_on_continue_triggered"]
+[connection signal="triggered" from="Exit" to="." method="_on_exit_triggered"]
