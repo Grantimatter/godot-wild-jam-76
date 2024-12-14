@@ -2,21 +2,19 @@ class_name Enemy extends BaseCharacter
 
 @export var movement_speed: float = 15
 
-@onready var movement_target_position: Vector3 = global_position
 @onready var navigation_agent: NavigationAgent3D = $NavigationAgent3D
 
 func _on_obstacle_activated(new_position: Vector3) -> void:
 	set_movement_target(new_position)
-	print("Target Position: %s" % new_position)
 
 func _ready() -> void:
 	SignalBus.obstacle_activated.connect(_on_obstacle_activated)
 	navigation_agent.path_desired_distance = 0.5
 	navigation_agent.target_desired_distance = 0.5
 
-	actor_setup.call_deferred()
+	actor_setup.call_deferred(global_position)
 
-func actor_setup():
+func actor_setup(movement_target_position: Vector3):
 	await get_tree().physics_frame
 	set_movement_target(movement_target_position)
 
