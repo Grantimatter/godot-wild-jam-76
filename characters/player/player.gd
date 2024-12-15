@@ -28,6 +28,6 @@ func _on_enemy_detector_body_entered(body: Node3D) -> void:
 	die(body as Enemy)
 
 func die(enemy: Enemy) -> void:
-	print("Player died! Killed by %s" % enemy.name)
+	SignalBus.player_killed.emit()
 	died.emit()
 	queue_free()

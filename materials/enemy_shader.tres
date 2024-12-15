@@ -1,0 +1,8 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://vl8aimv7lmjf"]
+
+[ext_resource type="Shader" uid="uid://cywb4i8wu6mj4" path="res://enemy_shader_vs.tres" id="1_73t5b"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_73t5b")
+shader_parameter/Albedo = Color(1, 0, 0, 1)
