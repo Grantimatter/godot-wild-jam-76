@@ -14,7 +14,6 @@ script = ExtResource("1_d3gi1")
 [node name="Activation" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.451826, 0)
 collision_layer = 4
-collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Activation"]
 shape = SubResource("SphereShape3D_30o46")

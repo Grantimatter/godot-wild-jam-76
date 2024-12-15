@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://c4teagrwqiifp"]
+
+[ext_resource type="PackedScene" uid="uid://c5qs2o8ymkq60" path="res://characters/base_character.tscn" id="1_kv8yl"]
+[ext_resource type="Script" path="res://characters/enemy/enemy.gd" id="2_444uy"]
+[ext_resource type="Material" uid="uid://vl8aimv7lmjf" path="res://materials/enemy_shader.tres" id="3_p0qdm"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ax3n7"]
+material = ExtResource("3_p0qdm")
+
+[node name="Enemy" groups=["enemy"] instance=ExtResource("1_kv8yl")]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("2_444uy")
+patrol_speed = 5.0
+alerted_speed = 15.0
+sus_time = 5.0
+
+[node name="Mesh" parent="Pivot" index="0"]
+mesh = SubResource("CapsuleMesh_ax3n7")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="2"]
+path_height_offset = -1.0
+
+[node name="SusTimer" type="Timer" parent="." index="3"]
+process_callback = 0
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="SusTimer" to="." method="_on_sus_timer_timeout"]

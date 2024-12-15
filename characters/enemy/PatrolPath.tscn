@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs07v5bm3v8wj"]
+
+[ext_resource type="Script" path="res://characters/enemy/patrol_path.gd" id="1_lmmpr"]
+
+[node name="PatrolPath" type="Path3D"]
+script = ExtResource("1_lmmpr")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="."]
