@@ -23,9 +23,6 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-env:
-  WORKING_DIRECTORY: app
-
 jobs:
   # Single deploy job since we're just deploying
   deploy:
@@ -43,7 +40,7 @@ jobs:
       - name: Godot HTML5 export
         uses: dulvui/godot-4-html-export@v1
         with:
-          working-directory: $WORKING_DIRECTORY
+          working-directory: '.'
           godot-version: 4.3
           godot-channel: stable
 
