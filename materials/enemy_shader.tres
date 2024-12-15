@@ -6,3 +6,6 @@
 render_priority = 0
 shader = ExtResource("1_73t5b")
 shader_parameter/Albedo = Color(1, 0, 0, 1)
+shader_parameter/FloatParameter = 6.0
+shader_parameter/DiffuseColor = Color(0, 0, 0, 1)
+shader_parameter/SpecularColor = Color(1, 0, 0, 1)
