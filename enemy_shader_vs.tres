@@ -108,7 +108,6 @@ void light() {
 
 }
 "
-graph_offset = Vector2(-1141.7, 167.866)
 nodes/fragment/0/position = Vector2(400, 220)
 nodes/fragment/3/node = SubResource("VisualShaderNodeFresnel_0nkgp")
 nodes/fragment/3/position = Vector2(-320, 380)
