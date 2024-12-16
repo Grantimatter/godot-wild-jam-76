@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://fl2wycpfh0lb" path="res://characters/player/player.tscn" id="1_21v0t"]
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_md0gm"]
 [ext_resource type="PackedScene" uid="uid://wu3fm34cfnrg" path="res://main.tscn" id="2_7qfvg"]
-[ext_resource type="PackedScene" uid="uid://bpw5c0xsx4jt8" path="res://tools/trigger_area.tscn" id="2_c23hx"]
+[ext_resource type="PackedScene" uid="uid://bpw5c0xsx4jt8" path="res://physics/trigger_area.tscn" id="2_c23hx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsdj0"]
 albedo_color = Color(0.376916, 0.390625, 0.320435, 1)

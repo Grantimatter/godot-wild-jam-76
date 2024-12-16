@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3w5t403qwn8q"]
+
+[ext_resource type="Script" path="res://camera/camera/camera_rail.gd" id="1_ufi1p"]
+
+[sub_resource type="Curve3D" id="Curve3D_2l7wx"]
+
+[node name="CameraRail" type="Path3D"]
+curve = SubResource("Curve3D_2l7wx")
+script = ExtResource("1_ufi1p")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="PathFollow3D"]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 5.0
+path_height_offset = 4.0
+path_max_distance = 10.01
