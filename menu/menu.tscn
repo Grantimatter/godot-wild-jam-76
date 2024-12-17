@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://fl2wycpfh0lb" path="res://characters/player/player.tscn" id="1_21v0t"]
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_md0gm"]
-[ext_resource type="PackedScene" uid="uid://wu3fm34cfnrg" path="res://main.tscn" id="2_7qfvg"]
 [ext_resource type="PackedScene" uid="uid://bpw5c0xsx4jt8" path="res://physics/trigger_area.tscn" id="2_c23hx"]
+[ext_resource type="PackedScene" uid="uid://sajadtxh0aqa" path="res://levels/playground.tscn" id="2_ycprc"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lsdj0"]
 albedo_color = Color(0.376916, 0.390625, 0.320435, 1)
@@ -20,7 +20,7 @@ size = Vector3(1, 0.1, 1)
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_md0gm")
-default_scene = ExtResource("2_7qfvg")
+default_scene = ExtResource("2_ycprc")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.508651, 0.860973, 0, -0.860973, 0.508651, 0, 7.27372, 9.03311)
@@ -37,9 +37,7 @@ shape = SubResource("BoxShape3D_f67j8")
 
 [node name="Player" parent="." instance=ExtResource("1_21v0t")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50654, 0)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 6, 4)
+speed = 10.0
 
 [node name="Continue" parent="." instance=ExtResource("2_c23hx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.43378, 1.01338, -8.3768)

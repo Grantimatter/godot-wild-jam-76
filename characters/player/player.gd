@@ -12,7 +12,7 @@ func _ready() -> void:
 	call_deferred("_setup_camera")
 
 func _setup_camera() -> void:
-	camera.reparent(get_tree().root)
+	camera.reparent(get_parent())
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -42,5 +42,5 @@ func _on_enemy_detector_body_entered(body: Node3D) -> void:
 func die(enemy: Enemy) -> void:
 	SignalBus.player_killed.emit()
 	died.emit()
-	$CameraBoom.reparent(get_tree().root)
+	$CameraBoom.reparent(get_parent())
 	queue_free()
