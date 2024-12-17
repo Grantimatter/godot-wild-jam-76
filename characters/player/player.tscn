@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://fl2wycpfh0lb"]
+[gd_scene load_steps=6 format=3 uid="uid://fl2wycpfh0lb"]
 
 [ext_resource type="PackedScene" uid="uid://c5qs2o8ymkq60" path="res://characters/base_character.tscn" id="1_kfsud"]
+[ext_resource type="PackedScene" uid="uid://cbfnehe3t1lhq" path="res://camera/camera_boom.tscn" id="2_7jfhl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5w3oi"]
 albedo_color = Color(0.511017, 1, 0.425781, 1)
@@ -23,5 +24,7 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyDetector" index="0"]
 shape = SubResource("CapsuleShape3D_3ui1o")
+
+[node name="CameraBoom" parent="." index="3" instance=ExtResource("2_7jfhl")]
 
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]

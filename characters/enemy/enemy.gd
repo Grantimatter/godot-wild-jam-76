@@ -14,6 +14,10 @@ signal sus_end
 
 var is_alerted: bool = false
 var is_sus: bool = false
+var patrolling_forward = true
+var loop: bool:
+	get:
+		return patrol_path.curve.get_point_position(0) == patrol_path.curve.get_point_position(patrol_path.curve.point_count - 1)
 
 var movement_speed: float:
 	get: return alerted_speed if is_alerted else patrol_speed
@@ -35,19 +39,26 @@ func actor_setup(movement_target_position: Vector3):
 func set_movement_target(movement_target: Vector3):
 	navigation_agent.set_target_position(movement_target)
 
-func _patrol_next_point() -> Vector3:
+func _patrol_next_point(delta: float) -> Vector3:
 	if not patrol_path:
 		return starting_position
-
-	patrol_path.follow_path.progress += patrol_speed
+	
+	if not (patrol_path.follow_path as PathFollow3D).loop:
+		if patrolling_forward and (patrol_path.follow_path as PathFollow3D).progress_ratio == 1.0:
+			patrolling_forward = false
+		if not patrolling_forward and (patrol_path.follow_path as PathFollow3D).progress_ratio == 0:
+			patrolling_forward = true
+	
+	patrol_path.follow_path.progress += (patrol_speed if patrolling_forward else -patrol_speed) * delta
 	return patrol_path.follow_path.global_position
 
-func _physics_process(delta):
+func _physics_process(delta: float):
+	if not is_alerted and not is_sus:
+			set_movement_target(_patrol_next_point(delta))
+
 	if navigation_agent.is_navigation_finished():
 		if is_alerted and not is_sus:
 			_sus_start()
-		if not is_alerted and not is_sus:
-			set_movement_target(_patrol_next_point())
 		return
 
 	var current_agent_position: Vector3 = global_position

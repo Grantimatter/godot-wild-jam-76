@@ -4,7 +4,15 @@ signal died(killer: Enemy)
 @export_group("Player/Movement")
 @export var speed: float = 5.0
 
+@onready var camera = $CameraBoom/Camera3D
+
 var is_alive: bool = true
+
+func _ready() -> void:
+	call_deferred("_setup_camera")
+
+func _setup_camera() -> void:
+	camera.reparent(get_tree().root)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -24,10 +32,15 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+#func _process(delta: float) -> void:
+	#camera.look_at($Pivot.global_position)
+	
+
 func _on_enemy_detector_body_entered(body: Node3D) -> void:
 	die(body as Enemy)
 
 func die(enemy: Enemy) -> void:
 	SignalBus.player_killed.emit()
 	died.emit()
+	$CameraBoom.reparent(get_tree().root)
 	queue_free()
