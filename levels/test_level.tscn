@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://c56ifd4tg0di5"]
+
+[ext_resource type="PackedScene" uid="uid://fl2wycpfh0lb" path="res://characters/player/player.tscn" id="1_s4gno"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_amx02"]
+vertices = PackedVector3Array(-49.5, 0.40492, -40.5, -49.5, 0.40492, 18.5, 49.5, 0.40492, 18.5, 49.5, 0.40492, -40.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s64p"]
+albedo_color = Color(0.195312, 0.109863, 0.109863, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wsbri"]
+material = SubResource("StandardMaterial3D_1s64p")
+size = Vector3(100, 1, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xo1df"]
+size = Vector3(60, 1, 60)
+
+[node name="Playground" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0541137, 0.998535, 0, -0.998535, 0.0541137, 0, 0, 0)
+light_energy = 0.2
+
+[node name="Player" parent="." instance=ExtResource("1_s4gno")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1491, 11.5987)
+
+[node name="LevelGeometry" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_amx02")
+
+[node name="Floor" type="StaticBody3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.59508, -11)
+collision_layer = 8
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/Floor"]
+mesh = SubResource("BoxMesh_wsbri")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Floor"]
+shape = SubResource("BoxShape3D_xo1df")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.559656, 0.828725, 0, -0.828725, 0.559656, 0, 12.6158, 14.9029)

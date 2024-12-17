@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://fl2wycpfh0lb" path="res://characters/player/player.tscn" id="2_re23g"]
 [ext_resource type="PackedScene" uid="uid://c4teagrwqiifp" path="res://characters/enemy/enemy.tscn" id="3_6486k"]
 [ext_resource type="PackedScene" uid="uid://w7xme52csa4v" path="res://obstacles/base_obstacle.tscn" id="4_tr43t"]
-[ext_resource type="PackedScene" uid="uid://bs07v5bm3v8wj" path="res://characters/enemy/PatrolPath.tscn" id="6_5jq32"]
+[ext_resource type="PackedScene" uid="uid://bs07v5bm3v8wj" path="res://characters/enemy/patrol_path.tscn" id="6_5jq32"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_8kbte"]
 vertices = PackedVector3Array(-29.5, -0.645996, -29.5, -29.5, -0.645996, 29.5, 29.5, -0.645996, 29.5, 29.5, -0.645996, -29.5)

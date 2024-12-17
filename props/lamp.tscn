@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://by17km6iq6o4t"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_krco5"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 0.3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_08otf"]
+top_radius = 0.05
+bottom_radius = 0.2
+height = 0.08
+
+[node name="Lamp" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.233824, 0)
+mesh = SubResource("CylinderMesh_krco5")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0442559, 0)
+mesh = SubResource("CylinderMesh_08otf")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.522063, 0)
+light_color = Color(1, 0.886536, 0.441406, 1)
+shadow_enabled = true
+omni_range = 9.19

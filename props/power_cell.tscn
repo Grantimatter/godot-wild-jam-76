@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4mfvuhhsoytw"]
+
+[ext_resource type="Material" uid="uid://4tspe8p5bvuk" path="res://props/power_cell_material.tres" id="1_co4rv"]
+[ext_resource type="Script" path="res://props/power_cell.gd" id="2_fthh6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pnyxd"]
+material = ExtResource("1_co4rv")
+radius = 0.2
+height = 0.5
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_xwsbu"]
+radius = 0.232648
+height = 0.613144
+
+[node name="PowerCell" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 0.0273982, 0.999625, 0, -0.999625, 0.0273982, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_pnyxd")
+script = ExtResource("2_fthh6")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_xwsbu")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SignalBus="*res://signal_bus.gd"
+SignalBus="*res://tools/signal_bus.gd"
 
 [display]
 
@@ -68,6 +68,7 @@ jump={
 3d_physics/layer_2="enemy"
 3d_physics/layer_3="obstacle"
 3d_physics/layer_4="world"
+3d_physics/layer_5="collectable"
 
 [rendering]
 
