@@ -70,6 +70,7 @@ jump={
 3d_physics/layer_3="obstacle"
 3d_physics/layer_4="world"
 3d_physics/layer_5="collectable"
+3d_physics/layer_6="interactable"
 
 [rendering]
 

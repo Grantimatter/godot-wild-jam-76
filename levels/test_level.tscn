@@ -19,8 +19,8 @@ size = Vector3(60, 1, 60)
 [node name="Playground" type="Node"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.0541137, 0.998535, 0, -0.998535, 0.0541137, 0, 0, 0)
-light_energy = 0.2
+transform = Transform3D(0.866025, -0.226855, -0.445575, 0.5, 0.392925, 0.771758, 0, -0.891149, 0.453711, 0, 6.1826, 0)
+light_energy = 0.38
 
 [node name="Player" parent="." instance=ExtResource("1_s4gno")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1491, 11.5987)
@@ -38,6 +38,3 @@ mesh = SubResource("BoxMesh_wsbri")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Floor"]
 shape = SubResource("BoxShape3D_xo1df")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.559656, 0.828725, 0, -0.828725, 0.559656, 0, 12.6158, 14.9029)

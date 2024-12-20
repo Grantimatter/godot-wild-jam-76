@@ -32,12 +32,11 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-#func _process(delta: float) -> void:
-	#camera.look_at($Pivot.global_position)
-	
-
 func _on_enemy_detector_body_entered(body: Node3D) -> void:
 	die(body as Enemy)
+
+func _on_interaction_area_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.
 
 func die(enemy: Enemy) -> void:
 	SignalBus.player_killed.emit()
