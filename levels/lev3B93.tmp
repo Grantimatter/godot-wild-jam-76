@@ -1,0 +1,118 @@
+[gd_scene load_steps=16 format=3 uid="uid://c7372sdapb7ag"]
+
+[ext_resource type="PackedScene" uid="uid://fl2wycpfh0lb" path="res://characters/player/player.tscn" id="1_14kg7"]
+[ext_resource type="PackedScene" uid="uid://b1xmt7i4314va" path="res://tools/static_cube.tscn" id="2_11hbp"]
+[ext_resource type="PackedScene" uid="uid://by17km6iq6o4t" path="res://props/lamp.tscn" id="3_nfj67"]
+[ext_resource type="PackedScene" uid="uid://c4teagrwqiifp" path="res://characters/enemy/enemy.tscn" id="4_hkyee"]
+[ext_resource type="Script" path="res://characters/enemy/patrol_path.gd" id="5_qd5n0"]
+[ext_resource type="PackedScene" uid="uid://w7xme52csa4v" path="res://obstacles/base_obstacle.tscn" id="6_khsjf"]
+[ext_resource type="PackedScene" uid="uid://b4mfvuhhsoytw" path="res://props/power_cell.tscn" id="7_ergdu"]
+[ext_resource type="AudioStream" uid="uid://bdno1piars3eh" path="res://SFX/Glass Shatter Light B.wav" id="8_osow5"]
+[ext_resource type="AudioStream" uid="uid://bld8fd66q2lne" path="res://SFX/Good Craft A.wav" id="9_6mfrd"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_amx02"]
+vertices = PackedVector3Array(-5, 0.40492, -4.25, 1.25, 0.40492, -11.75, 1.25, 0.40492, -13.25, -6.75, 0.40492, -4, -49.5, 0.40492, 18.5, -6.75, 0.40492, 2.5, -5.75, 0.40492, 18.5, -5.75, 0.40492, 2.75, 2.25, 0.40492, -13.5, 2.25, 0.40492, -40.5, -49.5, 0.40492, -40.5, 20.25, 0.40492, -12.5, 20.25, 0.40492, -40.5, 22.25, 0.40492, -12.5, 22.5, 0.40492, -11.5, 49.5, 0.40492, -11.5, 49.5, 0.40492, -40.5, -4.5, 0.40492, 2.25, 4.5, 0.40492, 5, 4.75, 0.40492, 4.5, -4.5, 0.40492, -4, 2.5, 0.40492, -11, 7, 0.40492, 4.25, 7, 0.40492, -11, 11.5, 0.40492, 6.25, 9.25, 0.40492, 6.5, 9.25, 0.40492, 18.5, 11, 0.40492, -10.75, 11, 0.40492, 4.25, 11.5, 0.40492, 4.5, 22, 0.40492, -10.25, 49.5, 0.40492, 18.5, -4.75, 0.40492, 2.75, 4.5, 0.40492, 6.5, 6, 0.40492, 18.5, 6.25, 0.40492, 6.75)
+polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 5, 4), PackedInt32Array(7, 6, 5), PackedInt32Array(5, 6, 4), PackedInt32Array(9, 8, 2), PackedInt32Array(2, 3, 9), PackedInt32Array(9, 3, 10), PackedInt32Array(10, 3, 4), PackedInt32Array(9, 12, 8), PackedInt32Array(8, 12, 11), PackedInt32Array(14, 13, 15), PackedInt32Array(15, 13, 16), PackedInt32Array(16, 13, 12), PackedInt32Array(13, 11, 12), PackedInt32Array(19, 18, 17), PackedInt32Array(0, 1, 20), PackedInt32Array(20, 1, 21), PackedInt32Array(19, 17, 22), PackedInt32Array(22, 17, 20), PackedInt32Array(22, 20, 21), PackedInt32Array(22, 21, 23), PackedInt32Array(26, 25, 24), PackedInt32Array(28, 27, 29), PackedInt32Array(29, 27, 30), PackedInt32Array(24, 30, 26), PackedInt32Array(26, 30, 15), PackedInt32Array(26, 15, 31), PackedInt32Array(24, 29, 30), PackedInt32Array(30, 14, 15), PackedInt32Array(28, 22, 27), PackedInt32Array(27, 22, 23), PackedInt32Array(17, 18, 32), PackedInt32Array(32, 18, 33), PackedInt32Array(33, 35, 34), PackedInt32Array(32, 33, 7), PackedInt32Array(7, 33, 6), PackedInt32Array(6, 33, 34), PackedInt32Array(34, 35, 26), PackedInt32Array(26, 35, 25)]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s64p"]
+albedo_color = Color(0.195312, 0.109863, 0.109863, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wsbri"]
+material = SubResource("StandardMaterial3D_1s64p")
+size = Vector3(100, 1, 60)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xo1df"]
+size = Vector3(60, 1, 60)
+
+[sub_resource type="Curve3D" id="Curve3D_012ug"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.0252151, -5.59092e-05, 0, 1.32407, 0, 0.402457, -1.32407, 0, -0.402457, -13.8844, -5.59092e-05, 3.47332, 2.27347, 0, -0.026226, -2.27347, 0, 0.026226, -20.677, -5.59092e-05, -5.62313, 0, 0, 0, 0, 0, 0, -26.2631, -5.59092e-05, 2.56007),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="Curve3D" id="Curve3D_1oiki"]
+_data = {
+"points": PackedVector3Array(-1.27233, 0, 1.48937, 1.27233, 0, -1.48937, 0.0695248, -5.59092e-05, -0.0233526, 1.16014, 0, 1.76542, -1.16014, 0, -1.76542, 0.0358982, -5.59092e-05, -6.98416, 2.11851, 0, -1.69817, -2.11851, 0, 1.69817, -8.05142, -5.59092e-05, -7.23636, -2.57247, 0, -3.24501, 2.57247, 0, 3.24501, -7.44613, -5.59092e-05, -0.157862, -1.27157, 0, 1.26151, 1.27157, 0, -1.26151, 0.0695248, -5.59092e-05, -0.0233526),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[node name="Playground" type="Node"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0541137, 0.998535, 0, -0.998535, 0.0541137, 0, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_14kg7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00492, 5.59867)
+
+[node name="LevelGeometry" type="NavigationRegion3D" parent="."]
+navigation_mesh = SubResource("NavigationMesh_amx02")
+
+[node name="Floor" type="StaticBody3D" parent="LevelGeometry"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.59508, -11)
+collision_layer = 8
+collision_mask = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="LevelGeometry/Floor"]
+mesh = SubResource("BoxMesh_wsbri")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LevelGeometry/Floor"]
+shape = SubResource("BoxShape3D_xo1df")
+
+[node name="StaticCube" parent="LevelGeometry" instance=ExtResource("2_11hbp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.51351, 0.8799, -0.674525)
+dimensions = Vector3(1, 1.79036, 5.81735)
+
+[node name="StaticCube3" parent="LevelGeometry" instance=ExtResource("2_11hbp")]
+transform = Transform3D(0.0461476, 0, -0.998935, 0, 1, 0, 0.998935, 0, 0.0461476, 7.94424, 7.55499, 5.41433)
+dimensions = Vector3(1, 15.3144, 5.81735)
+
+[node name="StaticCube2" parent="LevelGeometry" instance=ExtResource("2_11hbp")]
+transform = Transform3D(0.0500525, 7.55766e-09, -0.998747, 1.50996e-07, -1, 5.80977e-14, -0.998747, -1.50807e-07, -0.0500525, 11.7647, 0.8799, -11.8088)
+dimensions = Vector3(1, 1, 20)
+
+[node name="Lamp" parent="." instance=ExtResource("3_nfj67")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.64267, 1.77508, 1.32649)
+
+[node name="Enemy" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("4_hkyee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1063, 0.938044, -6.69777)
+patrol_path = NodePath("../PatrolPath")
+
+[node name="PatrolPath" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.0642, 1.92767, -6.78827)
+curve = SubResource("Curve3D_012ug")
+script = ExtResource("5_qd5n0")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="PatrolPath"]
+transform = Transform3D(-0.243097, 0, 0.970001, 0, 1, 0, -0.970001, 0, -0.243097, -0.0252151, -5.59092e-05, 0)
+loop = false
+tilt_enabled = false
+
+[node name="Enemy2" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("4_hkyee")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.07634, 0.938044, -15.8616)
+patrol_path = NodePath("../PatrolPath2")
+
+[node name="PatrolPath2" type="Path3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.83261, 1.92767, -15.7993)
+curve = SubResource("Curve3D_1oiki")
+script = ExtResource("5_qd5n0")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="PatrolPath2"]
+transform = Transform3D(0.760325, 0, -0.649526, 0, 1, 0, 0.649526, 0, 0.760325, 0.0695248, -5.59092e-05, -0.0233526)
+tilt_enabled = false
+
+[node name="BaseObstacle" parent="PatrolPath2" instance=ExtResource("6_khsjf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.6566, -2.02275, 5.22889)
+
+[node name="GlassSFX" type="AudioStreamPlayer3D" parent="PatrolPath2/BaseObstacle"]
+transform = Transform3D(1, 0, 0, 0, 0.0273982, 0.999625, 0, -0.999625, 0.0273982, -0.0309101, 1.09508, 7.14846)
+stream = ExtResource("8_osow5")
+volume_db = -3.5
+
+[node name="PowerCell" parent="." instance=ExtResource("7_ergdu")]
+transform = Transform3D(1, 0, 0, 0, 0.0273982, 0.999625, 0, -0.999625, 0.0273982, -1.8549, 1, -3.42195)
+
+[node name="CellSFX" type="AudioStreamPlayer3D" parent="PowerCell"]
+stream = ExtResource("9_6mfrd")
+volume_db = -2.0
