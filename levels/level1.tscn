@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7372sdapb7ag"]
+[gd_scene load_steps=15 format=3 uid="uid://c7372sdapb7ag"]
 
 [ext_resource type="PackedScene" uid="uid://fl2wycpfh0lb" path="res://characters/player/player.tscn" id="1_14kg7"]
 [ext_resource type="PackedScene" uid="uid://b1xmt7i4314va" path="res://tools/static_cube.tscn" id="2_11hbp"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://w7xme52csa4v" path="res://obstacles/base_obstacle.tscn" id="6_khsjf"]
 [ext_resource type="PackedScene" uid="uid://b4mfvuhhsoytw" path="res://props/power_cell.tscn" id="7_ergdu"]
 [ext_resource type="AudioStream" uid="uid://bdno1piars3eh" path="res://SFX/Glass Shatter Light B.wav" id="8_osow5"]
-[ext_resource type="AudioStream" uid="uid://bld8fd66q2lne" path="res://SFX/Good Craft A.wav" id="9_6mfrd"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_amx02"]
 vertices = PackedVector3Array(-5, 0.40492, -4.25, 1.25, 0.40492, -11.75, 1.25, 0.40492, -13.25, -6.75, 0.40492, -4, -49.5, 0.40492, 18.5, -6.75, 0.40492, 2.5, -5.75, 0.40492, 18.5, -5.75, 0.40492, 2.75, 2.25, 0.40492, -13.5, 2.25, 0.40492, -40.5, -49.5, 0.40492, -40.5, 20.25, 0.40492, -12.5, 20.25, 0.40492, -40.5, 22.25, 0.40492, -12.5, 22.5, 0.40492, -11.5, 49.5, 0.40492, -11.5, 49.5, 0.40492, -40.5, -4.5, 0.40492, 2.25, 4.5, 0.40492, 5, 4.75, 0.40492, 4.5, -4.5, 0.40492, -4, 2.5, 0.40492, -11, 7, 0.40492, 4.25, 7, 0.40492, -11, 11.5, 0.40492, 6.25, 9.25, 0.40492, 6.5, 9.25, 0.40492, 18.5, 11, 0.40492, -10.75, 11, 0.40492, 4.25, 11.5, 0.40492, 4.5, 22, 0.40492, -10.25, 49.5, 0.40492, 18.5, -4.75, 0.40492, 2.75, 4.5, 0.40492, 6.5, 6, 0.40492, 18.5, 6.25, 0.40492, 6.75)
@@ -61,19 +60,19 @@ mesh = SubResource("BoxMesh_wsbri")
 shape = SubResource("BoxShape3D_xo1df")
 
 [node name="StaticCube" parent="LevelGeometry" instance=ExtResource("2_11hbp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.51351, 0.8799, -0.674525)
-dimensions = Vector3(1, 1.79036, 5.81735)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.51351, 0.8799, 7.05928)
+dimensions = Vector3(2, 20, 20)
 
 [node name="StaticCube3" parent="LevelGeometry" instance=ExtResource("2_11hbp")]
-transform = Transform3D(0.0461476, 0, -0.998935, 0, 1, 0, 0.998935, 0, 0.0461476, 7.94424, 7.55499, 5.41433)
+transform = Transform3D(0.0461476, 0, -0.998935, 0, 1, 0, 0.998935, 0, 0.0461476, 7.94424, 7.55499, 11.4203)
 dimensions = Vector3(1, 15.3144, 5.81735)
 
 [node name="StaticCube2" parent="LevelGeometry" instance=ExtResource("2_11hbp")]
-transform = Transform3D(0.0500525, 7.55766e-09, -0.998747, 1.50996e-07, -1, 5.80977e-14, -0.998747, -1.50807e-07, -0.0500525, 11.7647, 0.8799, -11.8088)
+transform = Transform3D(0.0500525, 7.5576e-09, -0.998747, 1.50996e-07, -1, 1.17606e-13, -0.998747, -1.50807e-07, -0.0500525, 11.7647, 0.8799, -11.8088)
 dimensions = Vector3(1, 1, 20)
 
 [node name="Lamp" parent="." instance=ExtResource("3_nfj67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.64267, 1.77508, 1.32649)
+transform = Transform3D(0.160467, 0.987041, 0, -0.987041, 0.160467, 0, 0, 0, 1, -4.48199, 7.9576, 3.77531)
 
 [node name="Enemy" parent="." node_paths=PackedStringArray("patrol_path") instance=ExtResource("4_hkyee")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1063, 0.938044, -6.69777)
@@ -112,7 +111,3 @@ volume_db = -3.5
 
 [node name="PowerCell" parent="." instance=ExtResource("7_ergdu")]
 transform = Transform3D(1, 0, 0, 0, 0.0273982, 0.999625, 0, -0.999625, 0.0273982, -1.8549, 1, -3.42195)
-
-[node name="CellSFX" type="AudioStreamPlayer3D" parent="PowerCell"]
-stream = ExtResource("9_6mfrd")
-volume_db = -2.0
