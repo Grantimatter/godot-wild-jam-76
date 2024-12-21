@@ -10,7 +10,7 @@ func _ready() -> void:
 	super()
 	$Control/ColorRect/Label.text = text
 	$Control.hide()
-	$MeshInstance3D.mesh = mesh
+	#$MeshInstance3D.mesh = mesh
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,8 +24,9 @@ func do_interact():
 		end_interact()
 		return
 	super()
-	_hide_tooltip()
-	$Control.show()
+	if $Control/ColorRect/Label.text.length() > 0:
+		_hide_tooltip()
+		$Control.show()
 
 func end_interact() -> void:
 	super()
@@ -36,5 +37,6 @@ func stop_interact() -> void:
 	$Control.hide()
 
 func _validate_property(property: Dictionary) -> void:
-	if property.name == "mesh":
-		$MeshInstance3D.mesh = mesh
+	pass
+	#if property.name == "mesh":
+		#$MeshInstance3D.mesh = mesh

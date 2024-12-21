@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://tools/static_cube.gd" id="1_7w40k"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_jtrha"]
+[sub_resource type="BoxMesh" id="BoxMesh_ae2rv"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_kthtl"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_13eg6"]
 
 [node name="StaticCube" type="StaticBody3D"]
 collision_layer = 8
@@ -12,7 +12,7 @@ collision_mask = 0
 script = ExtResource("1_7w40k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_jtrha")
+mesh = SubResource("BoxMesh_ae2rv")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_kthtl")
+shape = SubResource("BoxShape3D_13eg6")
