@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://c4jj1dkbob3sl"]
+
+[ext_resource type="PackedScene" uid="uid://b3skqlaqai8l0" path="res://tools/interaction/Interactable.tscn" id="1_8r511"]
+[ext_resource type="Script" path="res://props/note.gd" id="1_no6vc"]
+[ext_resource type="Texture2D" uid="uid://crhnfsjcn7qsm" path="res://assets/A_low_poly_3D_busines_1116174342_refine_0.png" id="3_vj30m"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8exwa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fxcah"]
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Note" instance=ExtResource("1_8r511")]
+script = ExtResource("1_no6vc")
+mesh = SubResource("BoxMesh_8exwa")
+background = ExtResource("3_vj30m")
+text = "This is a note for all you assholes out there!"
+start_tooltip = "Read Note"
+complete_tooltip = "Read Note"
+is_one_shot = null
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("BoxMesh_8exwa")
+
+[node name="Tooltip" parent="." index="2"]
+text = "[<null>] This is a note for all you assholes out there!"
+
+[node name="Control" type="Control" parent="." index="3"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 496.0
+offset_top = 45.0
+offset_right = -496.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" index="0"]
+layout_mode = 0
+offset_right = 941.0
+offset_bottom = 995.0
+color = Color(0, 0, 0, 0.698039)
+
+[node name="Label" type="Label" parent="Control" index="1"]
+layout_mode = 1
+offset_left = 37.0
+offset_top = 32.0
+offset_right = 899.0
+offset_bottom = 949.0
+text = "This is a note for all you assholes out there!"
+label_settings = SubResource("LabelSettings_fxcah")

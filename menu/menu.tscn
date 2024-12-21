@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dilhbmmutvm7r"]
+[gd_scene load_steps=13 format=3 uid="uid://dilhbmmutvm7r"]
 
 [ext_resource type="PackedScene" uid="uid://fl2wycpfh0lb" path="res://characters/player/player.tscn" id="1_21v0t"]
 [ext_resource type="Script" path="res://menu/menu.gd" id="1_md0gm"]
@@ -17,6 +17,22 @@ size = Vector3(30, 1, 30)
 
 [sub_resource type="BoxMesh" id="BoxMesh_eokpg"]
 size = Vector3(1, 0.1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1s18k"]
+
+[sub_resource type="TextMesh" id="TextMesh_mu3cx"]
+material = SubResource("StandardMaterial3D_1s18k")
+text = "Continue"
+font_size = 127
+depth = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkuhl"]
+
+[sub_resource type="TextMesh" id="TextMesh_hfc1j"]
+material = SubResource("StandardMaterial3D_tkuhl")
+text = "Exit Game"
+font_size = 127
+depth = 0.1
 
 [node name="Menu" type="Node"]
 script = ExtResource("1_md0gm")
@@ -49,10 +65,15 @@ mesh = SubResource("BoxMesh_eokpg")
 
 [node name="Label3D" type="Label3D" parent="Continue"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.995455, -1.17876)
+visible = false
 text = "Continue"
 font_size = 250
 outline_size = 24
 uppercase = true
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Continue"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00904, -1.26583)
+mesh = SubResource("TextMesh_mu3cx")
 
 [node name="Exit" parent="." instance=ExtResource("2_c23hx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.48285, 1.01775, -8.23527)
@@ -64,10 +85,16 @@ mesh = SubResource("BoxMesh_eokpg")
 
 [node name="Label3D" type="Label3D" parent="Exit"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.995455, -1.17876)
+visible = false
 text = "Exit Game"
 font_size = 250
 outline_size = 24
 uppercase = true
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Exit"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0129242, 1.00467, -1.40736)
+mesh = SubResource("TextMesh_hfc1j")
+skeleton = NodePath("../../Continue")
 
 [connection signal="triggered" from="Continue" to="." method="_on_continue_triggered"]
 [connection signal="triggered" from="Exit" to="." method="_on_exit_triggered"]
