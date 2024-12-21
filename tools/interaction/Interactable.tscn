@@ -1,16 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3skqlaqai8l0"]
+[gd_scene load_steps=4 format=3 uid="uid://b3skqlaqai8l0"]
+
+[ext_resource type="Script" path="res://tools/interaction/interactable.gd" id="1_v52ju"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xo6tc"]
+radius = 1.35226
 
 [sub_resource type="PrismMesh" id="PrismMesh_jidm1"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_xo6tc"]
+[node name="Interactable" type="Area3D"]
+collision_layer = 32
+script = ExtResource("1_v52ju")
 
-[node name="Interactable" type="Node3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_xo6tc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PrismMesh_jidm1")
 
-[node name="Area3D" type="Area3D" parent="."]
-collision_layer = 32
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("SphereShape3D_xo6tc")
+[node name="Tooltip" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.804407, 0.594079, 0, -0.594079, 0.804407, 0, 1.07702, 0)
+visible = false
+sorting_offset = -1.0
+billboard = 1
+shaded = true
+no_depth_test = true
+text = "Tooltip!"
+font_size = 96
