@@ -8,13 +8,15 @@ class_name Interactable extends Area3D
 @export var complete_tooltip: String = "Interact"
 @export var is_one_shot: bool = false
 @export var interaction_range: float = .5
-@onready var interact_key = InputMap.action_get_events("interact")[0].as_text().get_slice(" (", 0)
 
+var interact_key
 var is_interacting: bool = false
 var can_interact: bool = true
 @onready var current_tooltip = start_tooltip
 
 func _ready() -> void:
+	if not Engine.is_editor_hint():
+		interact_key = InputMap.action_get_events("interact")[0].as_text().get_slice(" (", 0)
 	$Tooltip.text = _get_tooltip_text()
 	$Tooltip.billboard = true
 

@@ -21,9 +21,11 @@ complete_tooltip = "Read Note"
 mesh = SubResource("BoxMesh_8exwa")
 
 [node name="Tooltip" parent="." index="2"]
-text = "[<null>] <null>"
+text = "[<null>] Read Note"
+outline_size = 6
 
 [node name="Control" type="Control" parent="." index="3"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://dobf32eal6yxs"]
+
+[ext_resource type="PackedScene" uid="uid://b3skqlaqai8l0" path="res://tools/interaction/Interactable.tscn" id="1_7e15j"]
+[ext_resource type="Script" path="res://props/pickups/pickup.gd" id="2_m43o4"]
+[ext_resource type="Script" path="res://tools/item.gd" id="3_8opxt"]
+
+[sub_resource type="Resource" id="Resource_qlh45"]
+script = ExtResource("3_8opxt")
+name = "Key"
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qb1np"]
+albedo_color = Color(1, 0.796875, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a22ag"]
+material = SubResource("StandardMaterial3D_qb1np")
+size = Vector3(0.2, 0.05, 0.6)
+
+[node name="Interactable" instance=ExtResource("1_7e15j")]
+script = ExtResource("2_m43o4")
+item = SubResource("Resource_qlh45")
+start_tooltip = "Pickup"
+complete_tooltip = "Pickup"
+
+[node name="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("BoxMesh_a22ag")
