@@ -8,7 +8,7 @@ class_name Note extends Interactable
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	super()
-	$Control/Label.text = text
+	$Control/ColorRect/Label.text = text
 	$Control.hide()
 	$MeshInstance3D.mesh = mesh
 
