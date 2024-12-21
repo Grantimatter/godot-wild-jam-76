@@ -76,7 +76,7 @@ transform = Transform3D(0.0461476, 0, -0.998935, 0, 1, 0, 0.998935, 0, 0.0461476
 dimensions = Vector3(1, 15.3144, 5.81735)
 
 [node name="StaticCube2" parent="LevelGeometry" instance=ExtResource("5_0u4ut")]
-transform = Transform3D(0.0500525, 7.55754e-09, -0.998747, 1.50996e-07, -1, 1.78002e-13, -0.998747, -1.50807e-07, -0.0500525, 11.7647, 0.8799, -11.8088)
+transform = Transform3D(0.0500525, 7.55752e-09, -0.998747, 1.50996e-07, -1, 1.97542e-13, -0.998747, -1.50807e-07, -0.0500525, 11.7647, 0.8799, -11.8088)
 dimensions = Vector3(1, 1, 20)
 
 [node name="Lamp" parent="." instance=ExtResource("3_bog8c")]

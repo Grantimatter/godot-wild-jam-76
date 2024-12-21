@@ -16,16 +16,14 @@ background = ExtResource("3_vj30m")
 text = "This is a note for all you assholes out there!"
 start_tooltip = "Read Note"
 complete_tooltip = "Read Note"
-is_one_shot = null
 
 [node name="MeshInstance3D" parent="." index="1"]
 mesh = SubResource("BoxMesh_8exwa")
 
 [node name="Tooltip" parent="." index="2"]
-text = "[<null>] This is a note for all you assholes out there!"
+text = "[<null>] <null>"
 
 [node name="Control" type="Control" parent="." index="3"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,16 +36,25 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="Control" index="0"]
-layout_mode = 0
-offset_right = 941.0
-offset_bottom = 995.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.5
+offset_top = -497.5
+offset_right = 470.5
+offset_bottom = 497.5
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 0, 0, 0.698039)
 
-[node name="Label" type="Label" parent="Control" index="1"]
+[node name="Label" type="Label" parent="Control/ColorRect" index="0"]
 layout_mode = 1
-offset_left = 37.0
-offset_top = 32.0
-offset_right = 899.0
-offset_bottom = 949.0
+offset_left = 43.5
+offset_top = 34.5
+offset_right = 905.5
+offset_bottom = 951.5
 text = "This is a note for all you assholes out there!"
 label_settings = SubResource("LabelSettings_fxcah")
